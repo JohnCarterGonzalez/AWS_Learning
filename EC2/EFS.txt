@@ -1,0 +1,35 @@
+AWS EFS 
+  Elastic File System 
+    - managed network file system that can e mounted on many EC2 instances 
+    - EFS works w/EC2 instances in mutiple AZs 
+    - highly scalable, expensive, available, pay per use 
+    - use cases: 
+        content management
+        web serving 
+        data sharing 
+        WordPress 
+    - uses NFSv2.1 protocal (look that up)
+    - uses secutrit groups to control access to EFS 
+    - compatible with Linux based AMI (not windows)
+    - encryption at rest using KMS
+    - POSIX file system (~Linux) that has standard file API
+    - file system scales automatically
+    - performance:
+        EFS scale: 
+            1000s of concurrent NFS CLients, 10 Gib+ /s throughput
+            grow to petabyte-scale network file system automatically
+        Performance Mode: 
+            gen purpose, latency sensitive use cases (web servers, CMS)
+            Max I/Os - higher latency, throughput, highly parallel (big data pricessing)
+        Throughput Mode: 
+            Bursting ( 1 TB = 50 MiB/s + burst of up to 100 MiB/s )
+            Provisioned: set your throughput regardless of storage size 
+    - Storage Classes: 
+        Storage Tiers (lifecycle management feature)
+            Standard: for frequently accessed files
+            Infrequent: access (EFS-IA): cost to retireve files, lower price to 
+                        store, enable EFS-IA w/ a lifecycle policy
+        Availability & Durablilty
+            Standard: Multi AZ, great for production
+            One Zone: great for dev, backup enabled by default, compatible w/IA
+                      (EFS One Zone-IA) => 90% cost savings

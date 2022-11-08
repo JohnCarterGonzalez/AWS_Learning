@@ -1,0 +1,22 @@
+EBS V EFS
+  EBS Volumes
+    - EBS, can be attached to only one instance at a time 
+    - are locked at the AZ level 
+    - gp2: IO increases if the disk size increases 
+    - io1: can increase IO independently
+  EBS Migration
+    - take a snapshot 
+    - resote the snapshot to another AZ
+    - EBS backups use IO and you shouldnt run them while your app is handling 
+      heavy traffic 
+  Root EBS Volumes of instances get terminated by defualt, if the EC2 is terminated
+  (can be disabled)
+
+  EFS
+    - mounting 100s of instances across AZ
+    - EFS share websites files 
+    - only for linux instances (POSIX file system)
+    - EFS has a higher cost 
+    - can leverage EFS-IA for cost savings 
+    - 
+
